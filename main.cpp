@@ -1,20 +1,15 @@
 #include <iostream>
-#include <iomanip>
 #include <cstdlib>   
 using namespace std;
 
 int main(int argc, char *argv[]) {
 
-    
     int n = argc - 1;
-    if (n <= 0) {
-        cout << "No input numbers." << endl;
-        return 0;
-    }
+    if (n <= 0) return 0;
 
-    
+   
     int *pa = new int[n];
-    int *pstart = pa;   
+    int *pstart = pa;
 
     
     for (int i = 0; i < n; i++) {
@@ -23,16 +18,6 @@ int main(int argc, char *argv[]) {
     }
 
     
-    pa = pstart;
-
-    
-    cout << "Original: ";
-    for (int i = 0; i < n; i++, pa++) {
-        cout << setw(3) << *pa;
-    }
-    cout << endl;
-
-   
     pa = pstart;
     int *pb = pstart + n - 1;
     int temp;
@@ -45,16 +30,14 @@ int main(int argc, char *argv[]) {
         pb--;
     }
 
-   
+    
     pa = pstart;
-    cout << "Reversed: ";
     for (int i = 0; i < n; i++, pa++) {
-        cout << setw(3) << *pa;
+        cout << *pa;
+        if (i != n - 1) cout << " ";
     }
     cout << endl;
 
-   
     delete[] pstart;
-
     return 0;
 }
